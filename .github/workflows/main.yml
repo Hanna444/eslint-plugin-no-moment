@@ -1,26 +1,26 @@
-name: Release to npm
+name: Publish
 
-on: 
+on:
   push:
+    branches:
+      - 'main'
 
 jobs:
-  tests:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '20'
-
-    
-    - name: Install Dependencies
-      run: npm ci
-
-    - name: Publish to npm
-      run: npm publish
+  publish:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Repo
+          uses: actions/checkout@v4
+        - name: Setup node for publish
+          uses: actions/setup-node@v4
+          with:
+            node-version: '21' 
+            registry-url: https://npm.pkg.github.com/
+            scope: '@Hanna444'
+        - name: Npm install 
+          run: npm ci
+        - name: Publish the package to GitHub Packages
+          run: npm publish
+          env:
+            NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
