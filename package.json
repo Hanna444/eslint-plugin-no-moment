@@ -2,18 +2,39 @@
   "name": "eslint-plugin-no-moment",
   "version": "1.0.0",
   "description": "",
+  "type": "commonjs",
   "main": "index.js",
-  "peerDependencies": {
-    "eslint": "^9.0.0"
-  },
-  "publishConfig": {
-    "access": "public"
+  "engines": {
+    "node": "21"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "format": "prettier --write \"**/*.{js,jsx,cjs,ts,tsx,json,css,scss,md,xml}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,cjs,ts,tsx,json,css,scss,md,xml}\",md}\""
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
- 
+  "license": "ISC",
+  "dependencies": {
+    "date-fns": "^2.30.0",
+    "typescript": "^4.9.4"
+  },
+  "devDependencies": {
+    "@types/node": "20.11.20",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "@typescript-eslint/rule-tester": "^7.1.0",
+    "@vitest/coverage-c8": "^0.33.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-rule": "file:./eslint",
+    "prettier": "^3.2.5",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^7.1.0",
+    "vitest": "^0.30.1"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@Hanna444"
+  }
 }
