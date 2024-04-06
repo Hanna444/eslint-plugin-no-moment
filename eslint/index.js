@@ -10,12 +10,4 @@ const ruleFiles = fs.readdirSync(__dirname)
     return isFile && file.endsWith('.js') && file !== "index.js" && !file.endsWith("test.js");
   });
 
-// Create rules object
-const rules = Object.fromEntries(
-  ruleFiles.map(file => {
-    const ruleName = path.basename(file, ".js");
-    return [ruleName, require("./" + file)];
-  }),
-);
-
 module.exports = { rules };
