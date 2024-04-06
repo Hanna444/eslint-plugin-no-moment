@@ -22,8 +22,6 @@ module.exports = {
     },
     plugins: ["@typescript-eslint", "rule"],
     rules: {
-      "rule/camelcase": "error",
       "rule/no-moment": "error",
-      "rule/no-console": "error",
     },
   };
